@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOTS · Gestión de cuentas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="login-view" class="login-card" aria-labelledby="login-title">
+        <div class="brand-mark">B</div>
+        <p class="eyebrow">Panel privado</p>
+        <h1 id="login-title">Gestión de cuentas</h1>
+        <p class="muted">Ingresa para consultar y organizar tus cuentas.</p>
+        <form id="login-form" class="form-stack">
+          <label>Usuario<input id="login-user" type="text" autocomplete="username" required /></label>
+          <label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required /></label>
+          <button class="primary-button" type="submit">Entrar</button>
+          <p id="login-error" class="message error" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="dashboard-view" class="dashboard hidden" aria-labelledby="dashboard-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BOTS / PANEL</p>
+            <h1 id="dashboard-title">Mis cuentas</h1>
+          </div>
+          <button id="logout-button" class="ghost-button" type="button">Cerrar sesión</button>
+        </header>
+        <div class="toolbar">
+          <div><strong id="account-count">0</strong><span class="muted"> cuentas guardadas</span></div>
+          <button id="add-button" class="primary-button" type="button">＋ Añadir cuenta</button>
+        </div>
+        <p id="app-message" class="message" role="status"></p>
+        <div id="account-list" class="account-list"></div>
+      </section>
+    </main>
+
+    <dialog id="account-dialog">
+      <form id="account-form" class="modal-card" method="dialog">
+        <div class="modal-heading"><div><p class="eyebrow">Nueva entrada</p><h2>Añadir cuenta</h2></div><button id="close-dialog" class="icon-button" type="button" aria-label="Cerrar">×</button></div>
+        <label>Nombre<input id="account-name" type="text" placeholder="Ej. Gmail personal" required /></label>
+        <label>Correo<input id="account-email" type="email" placeholder="correo@ejemplo.com" required /></label>
+        <label>Contraseña<input id="account-password" type="text" required /></label>
+        <div class="modal-actions"><button class="ghost-button" id="cancel-dialog" type="button">Cancelar</button><button class="primary-button" type="submit">Guardar cuenta</button></div>
+        <p id="form-error" class="message error"></p>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
